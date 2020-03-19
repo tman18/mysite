@@ -1,3 +1,5 @@
+print('What a Wonderful World')
+
 top = open("templates/top.html").read()
 index = open("content/index.html").read()
 bottom = open("templates/bottom.html").read()
