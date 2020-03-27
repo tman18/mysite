@@ -1,26 +1,37 @@
 print('What a Wonderful World')
+def main():
+    for page in pages:
+        template = open("templates/base.html").read()
+        index_content = open(page['filename']).read()
+        title_for_page = template.replace("{{title}}", page['title'])
+        finished_index_page = title_for_page.replace("{{content}}", index_content)
+        open(page['output'], "w+").write(finished_index_page)       
 
-top = open("templates/top.html").read()
-index = open("content/index.html").read()
-bottom = open("templates/bottom.html").read()
-full = top + index + bottom
-open("docs/index.html", "w+").write(full)
+pages = [
+{
+"filename": "content/index.html",
+"output": "docs/Index.html",
+"title": "Tim Myers",
+},
 
-top = open("templates/top.html").read()
-index = open("content/about-me.html").read()
-bottom = open("templates/bottom.html").read()
-full = top + index + bottom
-open("docs/about-me.html", "w+").write(full)
+{
+"filename": "content/about-me.html",
+"output": "docs/about-me.html",
+"title": "About Me",
+},
 
-top = open("templates/top.html").read()
-index = open("content/resume.html").read()
-bottom = open("templates/bottom.html").read()
-full = top + index + bottom
-open("docs/resume.html", "w+").write(full)
+{
+"filename": "content/resume.html",
+"output": "docs/resume.html",
+"title": "Resume",
+},
 
-top = open("templates/top.html").read()
-index = open("content/contact.html").read()
-bottom = open("templates/bottom.html").read()
-full = top + index + bottom
-open("docs/contact.html", "w+").write(full)
+{
+"filename": "content/contact.html",
+"output": "docs/contact.html",
+"title": "Contact",
+}
+]
 
+
+main()
