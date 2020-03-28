@@ -7,6 +7,21 @@ def main():
         finished_index_page = title_for_page.replace("{{content}}", index_content)
         open(page['output'], "w+").write(finished_index_page)       
 
+def page_links():
+    content = open('docs/about-me.html').read()
+    content_with_link = content.replace('href="about-me.html', 'style= "color:yellow !important" href="about-me.html')
+    open('docs/about-me.html', 'w+').write(content_with_link)
+
+    content = open('docs/resume.html').read()
+    content_with_link = content.replace('href="resume.html', 'style= "color:yellow !important" href="resume.html')
+    open('docs/resume.html', 'w+').write(content_with_link)   
+
+    content = open('docs/contact.html').read()
+    content_with_link = content.replace('href="contact.html', 'style= "color:yellow !important" href="contact.html')
+    open('docs/contact.html', 'w+').write(content_with_link)
+
+        
+            
 pages = [
 {
 "filename": "content/index.html",
@@ -35,3 +50,4 @@ pages = [
 
 
 main()
+page_links()
