@@ -8,17 +8,10 @@ def main():
         open(page['output'], "w+").write(finished_index_page)       
 
 def page_links():
-    content = open('docs/about-me.html').read()
-    content_with_link = content.replace('href="about-me.html', 'style= "color:yellow !important" href="about-me.html')
-    open('docs/about-me.html', 'w+').write(content_with_link)
-
-    content = open('docs/resume.html').read()
-    content_with_link = content.replace('href="resume.html', 'style= "color:yellow !important" href="resume.html')
-    open('docs/resume.html', 'w+').write(content_with_link)   
-
-    content = open('docs/contact.html').read()
-    content_with_link = content.replace('href="contact.html', 'style= "color:yellow !important" href="contact.html')
-    open('docs/contact.html', 'w+').write(content_with_link)
+    for page in pages:
+        content = open(page['output']).read()
+        content_with_link = content.replace(page['url'], 'style="color:yellow !important"'+ " " + page['url'])
+        open(page['output'], 'w+').write(content_with_link)
 
         
             
@@ -27,24 +20,28 @@ pages = [
 "filename": "content/index.html",
 "output": "docs/Index.html",
 "title": "Tim Myers",
+"url": "I don't want this page to be changed",
 },
 
 {
 "filename": "content/about-me.html",
 "output": "docs/about-me.html",
 "title": "About Me",
+"url": 'href="about-me.html',
 },
 
 {
 "filename": "content/resume.html",
 "output": "docs/resume.html",
 "title": "Resume",
+"url": 'href="resume.html',
 },
 
 {
 "filename": "content/contact.html",
 "output": "docs/contact.html",
 "title": "Contact",
+"url": 'href="contact.html'
 }
 ]
 
