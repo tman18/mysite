@@ -37,7 +37,7 @@
           <li class="nav-item">
             {% for page in pages %}
             {% if page.title != 'Tim Myers' %}
-            <a class="nav-link{% if page.title == title %} active{% endif %}"  href="{{ page.filename }}">{{ page.title}}</a>
+            <a class="nav-link{% if page.title == title %} active{% endif %}"  href="{{ page.filename|lower }}">{{ page.title}}</a>
             {% endif %}
             {% endfor %}
           </li>
