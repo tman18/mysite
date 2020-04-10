@@ -57,3 +57,7 @@ section.resume-section {
     color: #222831;
     margin-bottom: 15px;
 }
+
+.active {
+    color: yellow !important;
+}
